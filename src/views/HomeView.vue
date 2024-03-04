@@ -10,7 +10,8 @@ export default {
       result: 'waiting...',
       clientId: 'e066eed4-d817-4109-8832-0c253a42671d',
       clientSecret: 'zJwx4xb0r1lt0H617/0Zd9O5Z/YSfXXKaWyu7ybHf84=',
-      bizNoList: '6428700732',
+      bizNoList: '8778100563,6428700732,1010120290',
+      resultData: [],
     };
   },
   methods: {
@@ -35,33 +36,31 @@ export default {
         let response = await axios.post(url, data, config);
         console.log(response.data.token);
         this.token = response.data.token;
-        await this.getInfo(this.token, '6428700732');
+        await this.getInfo();
       } catch (error) {
         console.error(error);
         this.token = `토큰 생성 실패 -> ${error}`;
       }
     },
-    async getInfo(token, no) {
+    async getInfo() {
       let url = 'https://cors-anywhere.herokuapp.com/https://api.moneypin.biz/bizno/v1/biz/info/base';
       let data = {
-        bizNoList: [
-          no,
-        ]
+        bizNoList: this.bizNoList.replaceAll(' ', '').split(','),
       };
 
       let config = {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${this.token}`,
         },
       };
 
       try {
         let response = await axios.post(url, data, config);
         console.log(response.data[0].info);
-        const info = response.data[0].info
-        this.result = JSON.stringify(info);
+        this.resultData = response.data
+        this.result = `총 ${response.data.length}개 조회 완료`
       } catch (error) {
         console.error(error);
         this.result = `정보 조회 실패 -> ${error}`;
@@ -85,6 +84,35 @@ export default {
   <br>
   <p>2. 조회된 정보</p>
   <p>{{ result }}</p>
+
+  <v-table style="max-width: 1280px; margin: auto">
+    <thead>
+    <tr>
+      <th class="text-center">정렬</th>
+      <th class="text-center">bizNo</th>
+      <th class="text-center">bizName</th>
+      <th class="text-center">ceoName</th>
+      <th class="text-center">zipCode</th>
+      <th class="text-center">address</th>
+      <th class="text-center">bizType</th>
+      <th class="text-center">bizStatus</th>
+      <th class="text-center">taxType</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="(item, index) in this.resultData">
+      <td>{{ index + 1 }}</td>
+      <td>{{ item.info.bizNo }}</td>
+      <td>{{ item.info.bizName }}</td>
+      <td>{{ item.info.ceoName }}</td>
+      <td>{{ item.info.zipCode }}</td>
+      <td>{{ item.info.address }}</td>
+      <td>{{ item.info.bizType }}</td>
+      <td>{{ item.info.bizStatus }}</td>
+      <td>{{ item.info.taxType }}</td>
+    </tr>
+    </tbody>
+  </v-table>
 </template>
 
 <style scoped>

@@ -104,7 +104,7 @@ export default {
       <!--      <th class="text-center">bizCategoryCode</th>-->
       <!--      <th class="text-center">corpRegNo</th>-->
       <!--      <th class="text-center">phoneNumber</th>-->
-      <!--      <th class="text-center">taxOfficeCode</th>-->
+      <th class="text-center">taxOfficeCode</th>
       <!--      <th class="text-center">taxOfficeName</th>-->
     </tr>
     </thead>
@@ -125,11 +125,16 @@ export default {
       <!--      <td>{{ item.info.bizCategoryCode }}</td>-->
       <!--      <td>{{ item.info.corpRegNo }}</td>-->
       <!--      <td>{{ item.info.phoneNumber }}</td>-->
-      <!--      <td>{{ item.info.taxOfficeCode }}</td>-->
+      <td>{{ item.info.taxOfficeCode }}</td>
       <!--      <td>{{ item.info.taxOfficeName }}</td>-->
     </tr>
     </tbody>
   </v-table>
+
+  <br>
+  <p>JSON DATA</p>
+  <p>{{ resultData }}</p>
+
 </template>
 
 <style scoped>

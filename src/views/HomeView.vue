@@ -43,7 +43,7 @@ export default {
       }
     },
     async getInfo() {
-      let url = 'https://cors-anywhere.herokuapp.com/https://api.moneypin.biz/bizno/v1/biz/info/base';
+      let url = 'https://cors-anywhere.herokuapp.com/https://api.moneypin.biz/bizno/v1/biz/info/all';
       let data = {
         bizNoList: this.bizNoList.replaceAll(' ', '').split(','),
       };
@@ -88,28 +88,44 @@ export default {
   <v-table style="max-width: 1280px; margin: auto">
     <thead>
     <tr>
-      <th class="text-center">정렬</th>
-      <th class="text-center">bizNo</th>
+      <th class="text-center">index</th>
+      <!--      <th class="text-center">bizNo</th>-->
       <th class="text-center">bizName</th>
       <th class="text-center">ceoName</th>
-      <th class="text-center">zipCode</th>
+      <!--      <th class="text-center">zipCode</th>-->
       <th class="text-center">address</th>
       <th class="text-center">bizType</th>
       <th class="text-center">bizStatus</th>
       <th class="text-center">taxType</th>
+      <!--      <th class="text-center">openingDate</th>-->
+      <th class="text-center">bizSectorName</th>
+      <th class="text-center">bizCategoryName</th>
+      <!--      <th class="text-center">bizCategoryCode</th>-->
+      <!--      <th class="text-center">corpRegNo</th>-->
+      <!--      <th class="text-center">phoneNumber</th>-->
+      <!--      <th class="text-center">taxOfficeCode</th>-->
+      <!--      <th class="text-center">taxOfficeName</th>-->
     </tr>
     </thead>
     <tbody>
     <tr v-for="(item, index) in this.resultData">
       <td>{{ index + 1 }}</td>
-      <td>{{ item.info.bizNo }}</td>
+      <!--      <td>{{ item.info.bizNo }}</td>-->
       <td>{{ item.info.bizName }}</td>
       <td>{{ item.info.ceoName }}</td>
-      <td>{{ item.info.zipCode }}</td>
+      <!--      <td>{{ item.info.zipCode }}</td>-->
       <td>{{ item.info.address }}</td>
       <td>{{ item.info.bizType }}</td>
       <td>{{ item.info.bizStatus }}</td>
       <td>{{ item.info.taxType }}</td>
+      <!--      <td>{{ item.info.openingDate }}</td>-->
+      <td>{{ item.info.bizSectorName }}</td>
+      <td>{{ item.info.bizCategoryName }}</td>
+      <!--      <td>{{ item.info.bizCategoryCode }}</td>-->
+      <!--      <td>{{ item.info.corpRegNo }}</td>-->
+      <!--      <td>{{ item.info.phoneNumber }}</td>-->
+      <!--      <td>{{ item.info.taxOfficeCode }}</td>-->
+      <!--      <td>{{ item.info.taxOfficeName }}</td>-->
     </tr>
     </tbody>
   </v-table>

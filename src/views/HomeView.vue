@@ -18,6 +18,7 @@ export default {
     async sendPost() {
       this.token = 'waiting...';
       this.result = 'waiting...';
+      this.resultData = [];
       let url = 'https://cors-anywhere.herokuapp.com/https://api.moneypin.biz/bizno/v1/auth/token';
       let data = {
         grantType: 'ClientCredentials',

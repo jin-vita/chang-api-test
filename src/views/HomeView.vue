@@ -80,7 +80,7 @@ export default {
   <v-btn @click="sendPost">정보 조회</v-btn>
   <br>
   <br>
-  <h3>1. 생성된 토큰</h2>
+  <h3>1. 생성된 토큰</h3>
   <p>{{ token }}</p>
   <br>
   <br>

@@ -133,7 +133,7 @@ export default {
   </v-table>
   <br>
   <br>
-  <p>JSON DATA</p>
+  <h3>JSON DATA</h3>
   <p>{{ resultData }}</p>
 </template>
 

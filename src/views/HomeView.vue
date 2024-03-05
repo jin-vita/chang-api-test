@@ -80,17 +80,18 @@ export default {
   <v-btn @click="sendPost">정보 조회</v-btn>
   <br>
   <br>
-  <p>1. 생성된 토큰</p>
+  <h3>1. 생성된 토큰</h2>
   <p>{{ token }}</p>
   <br>
-  <p>2. 조회된 정보</p>
+  <br>
+  <h3>2. 조회된 정보</h3>
   <p>{{ result }}</p>
-
+  <br>
   <v-table style="max-width: 1280px; margin: auto">
     <thead>
     <tr>
       <th class="text-center">index</th>
-      <!--      <th class="text-center">bizNo</th>-->
+      <th class="text-center">bizNo</th>
       <th class="text-center">bizName</th>
       <th class="text-center">ceoName</th>
       <!--      <th class="text-center">zipCode</th>-->
@@ -104,14 +105,14 @@ export default {
       <!--      <th class="text-center">bizCategoryCode</th>-->
       <!--      <th class="text-center">corpRegNo</th>-->
       <!--      <th class="text-center">phoneNumber</th>-->
-      <th class="text-center">taxOfficeCode</th>
+      <!--      <th class="text-center">taxOfficeCode</th>-->
       <!--      <th class="text-center">taxOfficeName</th>-->
     </tr>
     </thead>
     <tbody>
     <tr v-for="(item, index) in this.resultData">
       <td>{{ index + 1 }}</td>
-      <!--      <td>{{ item.info.bizNo }}</td>-->
+      <td>{{ item.info.bizNo }}</td>
       <td>{{ item.info.bizName }}</td>
       <td>{{ item.info.ceoName }}</td>
       <!--      <td>{{ item.info.zipCode }}</td>-->
@@ -125,16 +126,15 @@ export default {
       <!--      <td>{{ item.info.bizCategoryCode }}</td>-->
       <!--      <td>{{ item.info.corpRegNo }}</td>-->
       <!--      <td>{{ item.info.phoneNumber }}</td>-->
-      <td>{{ item.info.taxOfficeCode }}</td>
+      <!--      <td>{{ item.info.taxOfficeCode }}</td>-->
       <!--      <td>{{ item.info.taxOfficeName }}</td>-->
     </tr>
     </tbody>
   </v-table>
-
+  <br>
   <br>
   <p>JSON DATA</p>
   <p>{{ resultData }}</p>
-
 </template>
 
 <style scoped>

@@ -102,7 +102,7 @@ export default {
     async deleteData(docId) {
       this.loading = true;
       try {
-        const docRef = doc(db, 'crud-test', docId);
+        const docRef = doc(db, 'chang-crud-test', docId);
         await deleteDoc(docRef);
         await this.getData();
       } catch (error) {

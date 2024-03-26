@@ -1,11 +1,16 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import HomeView from "../views/HomeView.vue";
+import CrudTest from "../views/CrudTest.vue";
+import ApiTest from "../views/ApiTest.vue";
 
 const routes = [
     // 홈 화면
     {
         path: '/',
-        component: HomeView
+        component: CrudTest
+    },
+    {
+        path: '/api',
+        component: ApiTest
     },
 ]
 

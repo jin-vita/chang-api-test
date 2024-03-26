@@ -8,8 +8,8 @@ export default {
     return {
       token: 'waiting...',
       result: 'waiting...',
-      clientId: 'e066eed4-d817-4109-8832-0c253a42671d',
-      clientSecret: 'zJwx4xb0r1lt0H617/0Zd9O5Z/YSfXXKaWyu7ybHf84=',
+      clientId: '65d23e80-823c-41fb-8639-a9ca009dcf88',
+      clientSecret: 'PJFDUrluflziOQg8kHAPNgMdoHT8USwGO9p0emZK/Bg=',
       bizNoList: '8778100563,6428700732,1010120290',
       resultData: [],
     };
